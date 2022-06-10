@@ -107,7 +107,7 @@ var Configuration = map[string]PathConfig{
 	"ld":         Forbidden,
 	"ld.bfd":     Forbidden,
 	"ld.gold":    Forbidden,
-	"pkg-config": Forbidden,
+//	"pkg-config": Forbidden,
 
 	// These are toybox tools that only work on Linux.
 	"pgrep": LinuxOnlyPrebuilt,
@@ -119,6 +119,21 @@ func init() {
 	if runtime.GOOS == "darwin" {
 		Configuration["sw_vers"] = Allowed
 		Configuration["xcrun"] = Allowed
+		Configuration["meson"] = Allowed
+		Configuration["pkg-config"] = Allowed
+		Configuration["ccache"] = Allowed
+		Configuration["ninja"] = Allowed
+		Configuration["lkmake"] = Allowed
+		Configuration["greadlink"] = Allowed
+		Configuration["gsed"] = Allowed
+		Configuration["gcp"] = Allowed
+		Configuration["ggrep"] = Allowed
+		Configuration["lz4c"] = Allowed
+		Configuration["dsymutil"] = Allowed
+		Configuration["karton"] = Allowed
+		Configuration["docker"] = Allowed
+		Configuration["com.docker.cli"] = Allowed
+		Configuration["llvm-ar"] = Allowed
 
 		// We don't have darwin prebuilts for some tools,
 		// so allow the host versions.
